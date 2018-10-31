@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProjectGuid>{2AA11CEF-FDBC-4CDE-9A8C-C5105CE9E634}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>DeliveryCli</RootNamespace>
+    <AssemblyName>Delivery-Cli</AssemblyName>
+    <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ExternalConsole>true</ExternalConsole>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ExternalConsole>true</ExternalConsole>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Runner.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="CliBorrowBookPresenter.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Borrowings\Borrowings.csproj">
+      <Project>{D55C3C41-0E45-4F73-8E85-3348249F6E10}</Project>
+      <Name>Borrowings</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\External-InMemoryPersistence\External-InMemoryPersistence.csproj">
+      <Project>{A71C8311-A512-4C1C-80A0-E5E757B48F95}</Project>
+      <Name>External-InMemoryPersistence</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\External-XmlPersistence\External-XmlPersistence.csproj">
+      <Project>{C01FA5A3-8EC7-47F8-850E-4D3D0BD12641}</Project>
+      <Name>External-XmlPersistence</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DomainTests\DomainTests.csproj">
+      <Project>{6BAA0912-E7A6-4226-805D-1CDC997CF8B9}</Project>
+      <Name>DomainTests</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+</Project>
